@@ -11,8 +11,8 @@ generator client {
 
 model user {
   id        String  @id @default(uuid())
-  username  String   @unique
   wallet    String   @unique
+  projects  project[]
 }
 
 model project {
@@ -23,4 +23,6 @@ model project {
   rules        Json
   successURL   String
   errorURL     String
+  owner        user     @relation(fields: [ownerId], references: [id])
+  ownerId      String
 }

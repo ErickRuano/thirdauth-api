@@ -1,6 +1,6 @@
 import { config } from 'dotenv'
 import { PrismaClient } from '@prisma/client'
-import projectPrismaAdapter from './projectPrismaAdapter.js'
+import projectPrismaAdapter from './projectPrismaAdapter.js';
 
 config()
 
@@ -20,9 +20,11 @@ const findManyService = async (query)=>{
 }
 
 const createService = async(data)=>{
-	// data = projectPrismaAdapter(data)
+	console.log(data);
+	data = projectPrismaAdapter(data);
+	console.log(data);
 	return await prisma.project.create({
-		data
+		data,
 	})
 }
 

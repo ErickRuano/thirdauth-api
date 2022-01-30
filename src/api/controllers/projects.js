@@ -14,8 +14,7 @@ export default async (req, res)=>{
 		res.send(await findMany(query))
 	}else if(req.method === 'POST'){
 		// Attach user to request body
-		// req.body.owner = user
-
+		req.body.owner = user
 		res.send(await create(req.body))
 	}else{
 		res.send('this method is not supported')

@@ -1,4 +1,4 @@
-import api from '@satelite/api';
+const api = require('@satelite/api');
 
 const allowCors = fn => async (req, res) => {
     res.setHeader('Access-Control-Allow-Credentials', true)
@@ -18,4 +18,4 @@ const allowCors = fn => async (req, res) => {
   }
 
   
-export default allowCors(api.controllers.project)
+module.exports = allowCors(api.controllers.project)

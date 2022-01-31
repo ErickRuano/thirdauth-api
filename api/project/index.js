@@ -1,3 +1,3 @@
-import api from '@satelite/api';
+const api = require('@satelite/api')
 
-export default api.controllers.projects
+module.exports = api.controllers.projects

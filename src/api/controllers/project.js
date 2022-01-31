@@ -27,16 +27,15 @@ export default async (req, res) => {
 	const query = queryParser(req.query)
 
 	if (req.method === 'GET') {
-		const results = await findUnique(projectId, query)
-		console.log(results);
+		const results = await findUnique(projectId, query);
 		res.send(results)
 	} else if (req.method === 'PUT') {
-		const results = await update(projectId, req.body)
+		const results = await update(projectId, req.body);
 		res.send(results)
 	} else if (req.method === 'DELETE') {
-		const results = await destroy(projectId, req.body)
+		const results = await destroy(projectId, req.body);
 		res.send(results)
 	} else {
-		res.send('this method is not supported')
+		res.send('this method is not supported');
 	}
 }

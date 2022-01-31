@@ -4,7 +4,7 @@ async function build() {
 
   const inputOptions = {
     input : 'src/api/index.js',
-    external : ['axios', 'dotenv', '@prisma/client', 'qs', 'cookies']
+    external : ['axios', 'dotenv', '@prisma/client', 'qs', 'jsonwebtoken', 'cookies', '@metamask/eth-sig-util']
   };
 
   const outputOptions = {

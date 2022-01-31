@@ -2,6 +2,7 @@
 // import Cookies from 'cookies'
 
 import { PrismaClient } from '@prisma/client'
+import jwt from 'jsonwebtoken'
 const prisma = new PrismaClient()
 
 const findUser = async ({ wallet }) => {
@@ -10,32 +11,24 @@ const findUser = async ({ wallet }) => {
         where: {
             wallet,
         },
-        // include : {
-        // 	projects : true
-        // }
+        include: {
+            projects: true
+        }
     })
 }
 
 const authMiddleware = async (req, res) => {
-
-    
     try {
         // verify json web token
-        // const user = {
-        //     wallet: req.body.wallet,
-        // }
-        
-        // const dbUser = await findUser(user)
-
-        return {
-            wallet: "x0",
-            id: "9c8e3e34-38b4-4dd9-9950-b7790a2e73a4",
-        };
+        const token = req.headers['authorization'];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        return await findUser(decoded.data.user);
     } catch (err) {
-        res.status(401).send('Unauthorized').end()
+        console.log(err);
+        res.status(401).send('Unauthorized').end();
         return null
     }
-
 }
+
 
 export const auth = authMiddleware

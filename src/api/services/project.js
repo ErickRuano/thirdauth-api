@@ -20,9 +20,7 @@ const findManyService = async (query)=>{
 }
 
 const createService = async(data)=>{
-	console.log(data);
 	data = projectPrismaAdapter(data);
-	console.log(data);
 	return await prisma.project.create({
 		data,
 	})

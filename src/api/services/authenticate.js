@@ -1,5 +1,9 @@
+import jwt from 'jsonwebtoken';
+import checkSignature from './checkSignature'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
+
+
 
 const findOrCreateUser = async ({ wallet }) => {
 
@@ -7,9 +11,9 @@ const findOrCreateUser = async ({ wallet }) => {
         where: {
             wallet,
         },
-        // include : {
-        // 	projects : true
-        // }
+        include : {
+        	projects : true
+        }
     })
 
     if (!found) {
@@ -22,21 +26,30 @@ const findOrCreateUser = async ({ wallet }) => {
     }
 }
 
+
+const generateJWT = (user) => {
+    return jwt.sign({
+        data: {
+            user
+        }
+    }, process.env.JWT_SECRET, { expiresIn: 60 * 60 });
+}
+
 const auth = async (wallet, signature, message) => {
     try {
-        // verify signature here, else return 401
-        console.log('signature was verified successfully');
+
+        checkSignature(message, signature, wallet);
+
+        const user = await findOrCreateUser({
+            wallet,
+        })
+
+        return { token: generateJWT(user) };
     } catch (err) {
-        res.status(401).send('Unauthorized').end()
-        return null
+        console.log(err);
+        throw new Error("Unauthorized")
     }
 
-    const user = {
-        wallet,
-    }
-
-    const dbUser = await findOrCreateUser(user)
-    return { ...dbUser }
 }
 
 export default auth;

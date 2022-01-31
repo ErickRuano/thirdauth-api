@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@clerk/clerk-sdk-node": "0.5.1",
+    "@metamask/eth-sig-util": "^4.0.0",
     "@rollup/plugin-commonjs": "17.0.0",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "11.0.0",
@@ -28,6 +29,7 @@
   "dependencies": {
     "@prisma/client": "2.27.0",
     "follow-redirects": "^1.14.7",
+    "jsonwebtoken": "^8.5.1",
     "sirv-cli": "1.0.0"
   }
 }

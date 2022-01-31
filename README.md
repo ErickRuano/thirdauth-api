@@ -18,7 +18,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/erickruano/thirdauth">
-    <img src="public/assets/logo.png" alt="Logo" height="48px" >
+    <img src="./logo.png" alt="Logo" height="48px" >
   </a>
 
   <h3 align="center">Web3 Authentication<></h3>
@@ -62,7 +62,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![folder_preview.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1627704685199/T_kdaupvS.png)
+![folder_preview.png](preview.png)
 
 One of the use cases for NFTs and Web3 technologies that I believe could add value to many industries right now is the ability to use NFTs holding status as a factor of authentication.  
 

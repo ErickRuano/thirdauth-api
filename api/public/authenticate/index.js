@@ -1,2 +1,2 @@
 const api = require('@satelite/api');
-module.exports = api.controllers.authenticate
+module.exports = api.allowCors(api.controllers.authenticate)

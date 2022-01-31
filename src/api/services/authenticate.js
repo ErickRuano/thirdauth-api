@@ -32,7 +32,7 @@ const generateJWT = (user) => {
         data: {
             user
         }
-    }, process.env.JWT_SECRET, { expiresIn: 60 * 60 });
+    }, process.env.JWT_SECRET, { expiresIn: 60 * 60 * 24});
 }
 
 const auth = async (wallet, signature, message) => {

@@ -6,9 +6,13 @@ export default async (req, res)=>{
 
 	// Authenticate user
 	const user = await auth(req, res)
-	
+
 	// Parse query before passing to services
-	const query = queryParser(req.query)
+	const query = {
+		where: {
+			ownerId: user.id,
+		}
+	}
 	
 	if(req.method === 'GET'){
 		res.send(await findMany(query))

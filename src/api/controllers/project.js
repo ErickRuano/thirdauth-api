@@ -17,6 +17,8 @@ export default async (req, res) => {
 	// Get user projects id to determine if projectId belongs to authenticated user
 	const userProjects = user.projects.reduce((projects, { id }) => [...projects, id], [])
 
+	console.log(userProjects, projectId);
+
 	// If it doesn't belong, return 401
 	if (!userProjects.includes(projectId)) {
 		res.status(401).send("Authenticated user does not have access to requested resource")

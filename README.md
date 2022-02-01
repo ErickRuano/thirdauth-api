@@ -85,7 +85,6 @@ This way you are creating a security profile for NFT holders.  Then the project 
 - Vercel - Application hosting and serverless functions platform
 - Prisma - ORM
 - PlanetScale - Database
-- Clerk - User Management as a Service
 
 
 <!-- ROADMAP -->

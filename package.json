@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@clerk/clerk-sdk-node": "0.5.1",
     "@metamask/eth-sig-util": "^4.0.0",
     "@rollup/plugin-commonjs": "17.0.0",
     "@rollup/plugin-json": "4.1.0",
